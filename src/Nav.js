@@ -2,24 +2,25 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 /** Displays links to dogs.
- * 
+ *
  * Props:
- * - dogNames: array of dog names ["Whiskey", "Duke", "Perry", ...]
- * 
+ * - dogs: array of dog objects [{name, age, src, facts, id}, ...]
+ *
  * State:
  * none
- * 
+ *
  * App -> Nav
  */
-function Nav({ dogNames }) {
+function Nav({ dogs }) {
+  console.log("In Nav")
   return (
     <ul>
-      {dogNames.map((name, idx) =>
+      {dogs.map((dog) =>
         <li>
-          <Link key={`${name}-${idx}`}
-                to={`/dogs/${name}`}
+          <Link key={dog.id}
+                to={`/dogs/${dog.name}`}
           >
-            {name}
+            {dog.name}
           </Link>
         </li>)}
     </ul>
