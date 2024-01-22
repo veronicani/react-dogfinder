@@ -1,10 +1,15 @@
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Good luck!</h1>
-    </div>
+    <BrowserRouter>
+      <Nav />
+      <Routes>
+        <Route element={<DogList />} path="/" />
+        <Route element={<DogDetails />} path="/dogs/:name" />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
