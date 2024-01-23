@@ -1,18 +1,23 @@
-
-/**Displays list of dogs.
+import { Link } from "react-router-dom";
+/**Displays list of all dogs.
  *
- * Props: Dogs
+ * Props:
+ * -dogs: data of all dogs [{id, name, src, facts}, ...]
  *
  * State: None
  *
  * App -> DogList
  */
 function DogList({ dogs }){
-  console.log("in Dog list component")
+
   return(
     <div>
       <h1>Dog List!</h1>
-      {/* {dogs.map(dog => )} */}
+      {dogs.map(dog =>
+      <div key={dog.id}>
+        <img src={`../${dog.src}.jpg`} alt={dog.name}/>
+        <h3><Link to={`/dogs/${dog.name.toLowerCase()}`}>{dog.name}</Link></h3>
+      </div>)}
     </div>
   )
 }

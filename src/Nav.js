@@ -11,14 +11,15 @@ import { Link } from "react-router-dom";
  *
  * App -> Nav
  */
+//TODO:add home link/button in nav
 function Nav({ dogs }) {
-  console.log("In Nav")
+
   return (
     <ul>
       {dogs.map((dog) =>
-        <li>
-          <Link key={dog.id}
-                to={`/dogs/${dog.name}`}
+        <li key={dog.id}>
+          <Link
+            to={`/dogs/${dog.name.toLowerCase()}`}
           >
             {dog.name}
           </Link>
